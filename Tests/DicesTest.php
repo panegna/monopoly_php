@@ -18,9 +18,17 @@ final class DicesTest extends TestCase {
     {
         $dices = new Dices();
         $res = $dices->roll();
+        $this->assertTrue(gettype($res) == "integer");
+        $this->assertTrue($res >= 2 && $res <= $dices->getNbFaces());
+    }
+
+    public function testRoll()
+    {
+        $dices = new Dices();
+        $res = $dices->roll();
 
         $this->assertTrue( gettype($res) == "integer" );
-        $this->assertTrue($res >= 1 && $res <= $dices->getNbFaces());
+        $this->assertTrue($res >= 2 && $res <= $dices->getNbFaces());
         $this->assertTrue($res == $dices->getTotal());
 
         $base_value = $dices->roll();
@@ -34,8 +42,16 @@ final class DicesTest extends TestCase {
             }
         }
         $this->assertTrue($result);
-
     }
+
+    public function testIsDouble()
+    {
+        $dices = new Dices();
+        $dices->dice1->setValue(6);
+        $dices->dice2->setValue(6);
+        $this->assertTrue($dices->is_double());
+    }
+
     
     
 }

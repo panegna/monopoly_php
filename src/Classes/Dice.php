@@ -27,6 +27,11 @@ class Dice implements InterfaceDice {
         return $this->nbFace;
     }
 
+    public function setValue($res): int
+    {
+        return $this->value=$res;
+    }
+
     /**
      * Non existance du setter car pas besoin de modifier le $nbFace pendant une partie ou après la création du dé
      *
