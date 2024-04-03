@@ -3,12 +3,12 @@
 class Property {
     public string $name; 
     public int $price; 
-    public int $rent; 
-    
-    public function __construct($name, $price, $rent) {
+    public int $rentPrice; 
+
+    public function __construct($name, $price, $rentPrice) {
         $this->name = $name;
         $this->price = $price;
-        $this->rent = $rent;
+        $this->rentPrice = $rentPrice;
     }
 
     public function getPrice(): int {
@@ -16,7 +16,7 @@ class Property {
     }
 
     public function getRent(): int {
-        return $this->rent;
+        return $this->rentPrice;
     }
 
 }
