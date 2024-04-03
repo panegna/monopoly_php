@@ -1,6 +1,6 @@
 <?php
 
-class Property {
+class PropertyCard{
     public string $name; 
     public int $price; 
     public int $rentPrice; 
@@ -18,5 +18,4 @@ class Property {
     public function getRent(): int {
         return $this->rentPrice;
     }
-
 }

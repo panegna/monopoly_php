@@ -14,6 +14,17 @@ class Player{
         $this->isJailed = false;
     }
 
+    public function getName():string
+    {
+        return $this->name;
+    }
+    
+    public function getbalance():int
+    {
+        return $this->balance;
+    }
+
+
     public function incrBalance($amount,$from):int
     {
         $this->balance += $amount;
@@ -22,13 +33,21 @@ class Player{
     
     public function decrBalance($amount,$to):int
     {
-        $this->balance -= $amount;
-        return $this->balance;
+        
+        $tempBalance = $this->balance =- $amount;
+
+        if ($tempBalance < 0){
+            throw new \RuntimeException('Solde non suffisant');
+        }
+        else{
+            $this->balance =- $amount;
+            return $this->balance;
+        }
     }
 
     public function addProperty()
     {
-
+        
     }
 
     public function removeProperty()
